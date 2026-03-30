@@ -1,7 +1,9 @@
 # **Deep Reinforcement Learning via Evolution**
 ## Introduction  
 This project investigates to what extend evolutionary methods such as the Cross Entropy Method and Evolution Strategies can be used to optimize a neural policy compared to the baseline REINFORCE.  
+
 Reinforcement Learning (RL) methods can be divided into gradient-based and black-box optimization methods. Evolutionary algorithms work by perturbing (policy network) parameters and choosing or updating based on the total return of a population for an episode. But policy-gradient algorithms like REINFORCE explicitly use state-action trajectories for credit assignment. This project compares the baseline REINFORCE against two population-based evolutionary methods: Cross-Entropy Method (CEM) and Evolution Strategies (ES). Methods use neural network policies with similar architectures. These methods are compared under matched environment conditions and interaction budgets. Performances are compared for the pendulum swing-up (Pendulum-v1, OpenAI Gym) continuous-control task.  
+
 Initially, ES and CEM are implemented in a simple configuration based on a discrete action space and a multilayer perceptron (MLP) policy. However, both ES and CEM show unstable learning and fail to reliably improve performance. Therefore, the project then aligns these evolutionary algorithms with their theoretical assumptions. For instance, policy is adjusted to choose a continuous torque instead of choosing between discrete torques. In addition, antithetic sampling is also used, and for the  ES method, adjusted policies are ranked, and the choice depends on relative order rather than raw return values. This way, the potential problem concerning increased noise during fitness evaluation is addressed.
 ## Results  
 ### Discrete methods  
